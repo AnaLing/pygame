@@ -21,7 +21,7 @@ Tenemos dos clases, Player1() y Player2() para cada jugador. Estos se mueven hac
 La clase Bullet() es para las balas que dispara cada jugador y la clase Mob() para los meteoritos que aparecerán de manera aleatoria en el escenario. <br />
 El show_go_screen() sirve para que al inicializar el juego, aparezca por pantalla las intrucciones. El show_go_screen_end() sirve para que, cuando alguno de los jugadores es colisionado por algún meteorito, aparezca por pantalla un GAME OVER y el puntuaje de cada jugador, pudiendo repetir el juego con la tecla SPACE. <br />
 Tras cargar las imágenes y crear las variables que se van a usar viene el bucle principal donde analizamos los eventos, tanto las teclas presionadas por cada jugador como las colisiones de sus balas con los meteoritos. Por último vendría el refresh.<br />
-En este juego las balas si se comportan de manera corrrecta, aparecen y desaparecen tras salir de pantalla o colisionar con algún meteorito.
+En este juego las balas sí se comportan de manera corrrecta, aparecen y desaparecen tras salir de pantalla o colisionar con algún meteorito.
 
 
 
