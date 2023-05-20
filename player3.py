@@ -176,7 +176,10 @@ class BallSprite(pygame.sprite.Sprite):
             else:
                 self.speedx = -10
         self.update()
-
+        
+    def get_id(self):
+        return self.id
+    
     def update(self):
         self.rect.x += self.speedx
         if self.rect.x < 0 or self.rect.x > SIZE[0]:
@@ -203,7 +206,6 @@ class Display():
             self.all_sprites.add(paddle)
             self.paddle_group.add(paddle)   
         self.score = [0,0]
-        
         
     def analyze_events(self, side):
         events = []
@@ -250,8 +252,7 @@ class Display():
             for id in self.game.id_malos:
                 if ball.get_id() == id:
                   self.balls1.pop(self.index1)
-            self.index1 += 1
-            
+            self.index1 += 1            
         for ball in self.balls2aux:
             for id in self.game.id_malos:
                 if ball.get_id() == id:
