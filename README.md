@@ -15,7 +15,13 @@ En la clase Game() obtenemos la información de sala3.py y establecemos todas la
 La clase Paddle() dibuja al jugador y la clase BallSprite() se encarga de la bola. <br />
 En l aclase Display() inicializamos la pantalla y creamos los grupos de sprites: self.all_sprites, self.paddle_group, self.balls1_group (bolas que lanza el jugador izquierdo) y self.balls2_group (bolas que lanza el jugador derecho). <br />
 En el método analyze_events() de la clase Display(), vemos si alguna de las balas del jugador derecho colisiona con el jugador izquierdo con  hit = pygame.sprite.spritecollide(self.paddles[LEFT_PLAYER], self.balls2_group, False) y viceversa. En caso afirmativo, le enviamos esa información de 'collide' a sala para que cambie el puntuaje de cada jugador. <br />
-En el refresh() de Display() vamos creando los sprites de las bolas y añadiéndolas a self.all_sprites para posteriormente dibujar todo. Además, recorremos la lista de id_malos que viene de sala y lo comparamos con los identificadores de las bolas que tenemos, para, si alguno coincide, eliminarlo de la pantalla.<br />
+En el refresh() de Display() vamos creando los sprites de las bolas y añadiéndolas a self.all_sprites para posteriormente dibujar todo. Además, recorremos la lista de id_malos que viene de sala y lo comparamos con los identificadores de las bolas que tenemos, para, si alguno coincide, eliminarlo de la pantalla.<br /> <br />
+**basic.py**<br />
+Tenemos dos clases, Player1() y Player2() para cada jugador. Estos se mueven hacia la derecha y hacia la izquierda y pueden disparar con el método shoot(), el cula crea una nueva bala y lo añade a all_sprites y a su correspondiente grupo de balas (bullets1 para el jugador izquierdo y bullets2 para el jugador derecho). <br />
+La clase Bullet() es para las balas que dispara cada jugador y la clase Mob() para los meteoritos que aparecerán de manera aleatoria en el escenario. <br />
+El show_go_screen() sirve para que al inicializar el juego, aparezca por pantalla las intrucciones. El show_go_screen_end() sirve para que, cuando alguno de los jugadores es colisionado por algún meteorito, aparezca por pantalla un GAME OVER y el puntuaje de cada jugador, pudiendo repetir el juego con la tecla SPACE. <br />
+Tras cargar las imágenes y crear las variables que se van a usar viene el bucle principal donde analizamos los eventos, tanto las teclas presionadas por cada jugador como las colisiones de sus balas con los meteoritos. Por último vendría el refresh.<br />
+En este juego las balas si se comportan de manera corrrecta, aparecen y desaparecen tras salir de pantalla o colisionar con algún meteorito.
 
 
 
