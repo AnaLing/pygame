@@ -298,7 +298,7 @@ while running:
     hits1 = pygame.sprite.groupcollide(mobs, bullets1, True, True) #Estos son los meteoritos que destruye el jugador 1
     for hit in hits1:
        score[0] += 1
-       m = Mob()
+       m = Mob()  #Cuando se le da a un meteorito, este desaparece y debemos crear más
        all_sprites.add(m)
        mobs.add(m)
 
