@@ -1,10 +1,9 @@
 #Laura Bodas López 
 #Ana Ling Fernández Barba
 # Juego multijugador
-Hemos creado dos juegos, uno multijugador que se puede ejecutar en varios ordenadores (player3.py y sala3.py) y otro también multijugador pero que se juega con el teclado de un solo ordenador (basic.py).<br />
-El primero trata sobre dos jugadores, uno a la izquierda del escenario y otro a la derecha que sólo pueden moverse hacia arriba y hacia abajo. Ambos pueden disparar bolas que van en dirección recta hacia el otro lado y si le da al contrincante, obtiene un punto. La idea era que al dar a la tecla SPACE, se crease una bola y apareciese en pantalla viajando hacia el lado contrario y luego desapareciese, como ocurre en basic.py. Sin embargo, en nuestro programa se dibuja la misma bola múltiples veces a lo largo de su trayecto y no desaparece, no conseguimos solucionarlo. <br />
-El segundo, basic.py, se trata de un space shooter multijugador. Hay dos jugadores, cada uno con su puntuaje, que tienen que disparar a unos meteoritos que aparecen de manera aleatoria. Si alguno de los jugadores colisiona con algún meteorito, el juego acaba para los dos jugadores.<br />
-Las imágenes para ambos juegos se encuentran en la carpeta img.<br /> <br />
+Hemos creado un juego multijugador que se puede ejecutar en varios ordenadores (player3.py y sala3.py) 
+Trata sobre dos jugadores, uno a la izquierda del escenario y otro a la derecha que sólo pueden moverse hacia arriba y hacia abajo. Ambos pueden disparar bolas que van en dirección recta hacia el otro lado y si le da al contrincante, obtiene un punto. La idea era que al dar a la tecla SPACE, se crease una bola y apareciese en pantalla viajando hacia el lado contrario y luego desapareciese, como ocurre en basic.py. Sin embargo, en nuestro programa se dibuja la misma bola múltiples veces a lo largo de su trayecto y no desaparece, no conseguimos solucionarlo. <br />
+Las imágenes se encuentran en la carpeta img.<br /> <br />
 **sala3.py** <br />
 Tenemos la clase Player() que tiene la posición en donde empieza cada jugador y luego los métodos moveDown() y moveUp() para que se mueva hacia abajo y hacia arriba. También tiene el método shoot() que crea una bola en la posición en la que se encuentre el jugador. <br />
 La clase Ball() requiere de una posición pos, del lado side de donde sale la bola y un identificador id. El side es necesario pues si sale del jugador izquierdo, se tiene que mover hacia la derecha y viceversa. El id sirve para, posteriormente, identificar las bolas que se salen del escenario, eliminarlas y mandarle esa información a player3.py para que las deje de dibujar (esto es lo que nos falla).<br />
@@ -18,12 +17,6 @@ La clase Paddle() dibuja al jugador y la clase BallSprite() se encarga de la bol
 En la clase Display() inicializamos la pantalla y creamos los grupos de sprites: self.all_sprites, self.paddle_group, self.balls1_group (bolas que lanza el jugador izquierdo) y self.balls2_group (bolas que lanza el jugador derecho). <br />
 En el método analyze_events() de la clase Display(), vemos si alguna de las balas del jugador derecho colisiona con el jugador izquierdo con  hit = pygame.sprite.spritecollide(self.paddles[LEFT_PLAYER], self.balls2_group, False) y viceversa. En caso afirmativo, le enviamos esa información de 'collide' a sala para que cambie el puntuaje de cada jugador. <br />
 En el refresh() de Display() vamos creando los sprites de las bolas y añadiéndolas a self.all_sprites para posteriormente dibujar todo. Además, recorremos la lista de id_malos que viene de sala y lo comparamos con los identificadores de las bolas que tenemos, para, si alguno coincide, eliminarlo de la pantalla.<br /> <br />
-**basic.py**<br />
-Tenemos dos clases, Player1() y Player2() para cada jugador. Estos se mueven hacia la derecha y hacia la izquierda y pueden disparar con el método shoot(), el cual crea una nueva bala y lo añade a all_sprites y a su correspondiente grupo de balas (bullets1 para el jugador izquierdo y bullets2 para el jugador derecho). <br />
-La clase Bullet() es para las balas que dispara cada jugador y la clase Mob() para los meteoritos que aparecerán de manera aleatoria en el escenario. <br />
-El show_go_screen() sirve para que al inicializar el juego, aparezca por pantalla las intrucciones. El show_go_screen_end() sirve para que, cuando alguno de los jugadores es colisionado por algún meteorito, aparezca por pantalla un GAME OVER y el puntuaje de cada jugador, pudiendo reiniciar el juego con la tecla SPACE. <br />
-Tras cargar las imágenes y crear las variables que se van a usar, viene el bucle principal donde analizamos los eventos, tanto las teclas presionadas por cada jugador como las colisiones de sus balas con los meteoritos. Por último vendría el refresh.<br />
-En este juego las balas sí se comportan de manera corrrecta, aparecen y desaparecen tras salir de pantalla o colisionar con algún meteorito.
 
 
 
