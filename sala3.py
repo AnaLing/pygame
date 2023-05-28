@@ -162,7 +162,7 @@ class Game():
         for ball in self.ballsrightaux:
             ball.update()
             pos = ball.get_pos()
-            self.ballsright[self.indexrightaux.value] = ball
+            self.ballsright[self.indexrightaux.value] = ball #Actualizamos la bola de la lista
             if pos[X]<0:
                 self.id_malos.append(ball.get_id())
                 del self.ballsright[0]
