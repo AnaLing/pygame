@@ -89,7 +89,7 @@ class Game():
         self.players[side].set_pos(pos)
 
     def set_ball_pos_left(self, pos):
-        self.ballsleft = []
+        self.ballsleft = [] #Reiniciamos la lista de bolas para no tener, por ejemplo, la bola con identificador 1, varias veces con sus distintas posiciones
         self.indexleft = Value('i', 0)
         for i in pos:
               self.ballsleft.append(Ball())
@@ -235,7 +235,7 @@ class Display():
         self.screen.blit(text, (250, 10))
         text = font.render(f"{score[RIGHT_PLAYER]}", 1, WHITE)
         self.screen.blit(text, (SIZE[X]-250, 10))
-        self.balls1 = []
+        self.balls1 = [] #Reiniciamos la lista por el mismo motivo que cuando reiniciamos self.ballsleft
         self.balls2 = []
         for i in self.game.ballsleft:          
             self.balls1.append(BallSprite(i, 0))          
@@ -251,13 +251,13 @@ class Display():
             for id in self.game.id_malos:
                 if ball.get_id() == id:
                   del self.balls2[0]   
-        self.balls1_group.empty()
+        self.balls1_group.empty() #Reiniciamos el grupo de sprites para que no dibujemos de manera repetida la misma bola con un mismo identificador
         self.balls2_group.empty()            
         for ball in self.balls1:
             self.balls1_group.add(ball)
         for ball in self.balls2: 
             self.balls2_group.add(ball)
-        self.paddle_group.draw(self.screen)
+        self.paddle_group.draw(self.screen) #El self.all_sprites lo hemos dividido en el grupo de los sprites de los jugadores y en los grupos de sus bolas
         self.balls1_group.draw(self.screen)
         self.balls2_group.draw(self.screen)
         pygame.display.flip()
