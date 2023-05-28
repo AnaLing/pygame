@@ -2,7 +2,7 @@
 #Ana Ling Fernández Barba
 # Juego multijugador
 Hemos creado un juego multijugador que se puede ejecutar en varios ordenadores (player3.py y sala3.py) 
-Trata sobre dos jugadores, uno a la izquierda del escenario y otro a la derecha que sólo pueden moverse hacia arriba y hacia abajo. Ambos pueden disparar bolas que van en dirección recta hacia el otro lado y si le da al contrincante, obtiene un punto. La idea era que al dar a la tecla SPACE, se crease una bola y apareciese en pantalla viajando hacia el lado contrario y luego desapareciese, como ocurre en basic.py. Sin embargo, en nuestro programa se dibuja la misma bola múltiples veces a lo largo de su trayecto y no desaparece, no conseguimos solucionarlo. <br />
+Trata sobre dos jugadores, uno a la izquierda del escenario y otro a la derecha que sólo pueden moverse hacia arriba y hacia abajo. Ambos pueden disparar bolas que van en dirección recta hacia el otro lado y si le da al contrincante, obtiene un punto. La idea era que al dar a la tecla SPACE, se crease una bola y apareciese en pantalla viajando hacia el lado contrario y luego desapareciese. Sin embargo, en nuestro programa se dibuja la misma bola múltiples veces a lo largo de su trayecto y no desaparece, no conseguimos solucionarlo. <br />
 Las imágenes se encuentran en la carpeta img.<br /> <br />
 **sala3.py** <br />
 Tenemos la clase Player() que tiene la posición en donde empieza cada jugador y luego los métodos moveDown() y moveUp() para que se mueva hacia abajo y hacia arriba. También tiene el método shoot() que crea una bola en la posición en la que se encuentre el jugador. <br />
